@@ -10,16 +10,16 @@
             <h1 class="masthead-subheading mb-0">Aqui temos um resumo dos meus conhecimentos tecnológicos</h1>
         </div>
 
-        <div class="row ml-4" *ngIf="knowledges">
+        <div class="row" *ngIf="knowledges">
             <mat-card
             *ngFor="let value of knowledges | async; index as i"
-            class="col-md-4 col-lg-5 mb-5 ml-5">
+            class="col-md-4 col-lg-5 mb-5 mr-auto ml-auto mb-2">
                 <mat-card-header>
                   <mat-card-title class="masthead-subheading m-2">{{ value.title }}</mat-card-title>
                 </mat-card-header>
                 <img mat-card-image [src]="getBase64AsImage(value.fileData)" [alt]="getAltDescription(value.title)">
                 <mat-card-content class="text-center mt-3">
-                  <button class="btn btn-light font-weight-bold" [value]="i">
+                  <button class="btn btn-light font-weight-bold" (click)="openInfo(i)">
                       Ver mais
                       <i class="fas fa-search"></i>
                   </button>

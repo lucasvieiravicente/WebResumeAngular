@@ -4,12 +4,12 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: 'content',
+    path: '',
     component: AppComponent,
   },
   {
     path: '',
-    redirectTo: 'content',
+    redirectTo: '',
     pathMatch: 'full'
   }
  ]

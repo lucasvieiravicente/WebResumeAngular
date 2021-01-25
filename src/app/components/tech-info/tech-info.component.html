@@ -1,0 +1,13 @@
+<h1 mat-dialog-title class="masthead-subheading">{{ data.title }}</h1>
+<div mat-dialog-content class="text-uppercase">
+    <p class="text-justify">{{ data.firstDescription }}</p>
+    <p class="text-justify">{{ data.secondDescription }}</p>
+    <p class="text-center">Para mais informações clique <a [href]="getSearchUrl()" target="_blank">aqui</a></p>
+</div>
+<div mat-dialog-actions class="text-center">
+    <div class="btn btn-light btn-lg" (click)="closeDialog()">
+        <div class="text-danger font-weight-bold">
+            <i class="far fa-window-close"></i>
+        </div>
+    </div>
+</div>

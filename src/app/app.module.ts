@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutProjectModule } from './components/about-project/about-project.module';
 import { ContactModule } from './components/contact/contact.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FooterComponent } from './components/footer/footer.component';
 import { FooterModule } from './components/footer/footer.module';
 import { RouterModule } from '@angular/router';
 
@@ -23,20 +22,20 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    PortfolioModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    AppRoutingModule,
+    RouterModule,
+    NgbModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     HeaderModule,
     MastheadModule,
     AboutModule,
+    PortfolioModule,
     AboutProjectModule,
     ContactModule,
-    FooterModule,
-    RouterModule
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
