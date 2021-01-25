@@ -5,10 +5,10 @@
         <div *ngIf="!navbarOpen">
           <button mat-button [matMenuTriggerFor]="menu" class="btn btn-light btn-lg font-weight-bold rounded">Menu</button>
           <mat-menu class="container" #menu="matMenu">
-            <button mat-menu-item (click)="scroll('about')">Sobre</button>
-            <button mat-menu-item (click)="scroll('portfolio')">Conhecimentos</button>
-            <button mat-menu-item (click)="scroll('repository')">Repositório</button>
-            <button mat-menu-item (click)="scroll('contact')">Contato</button>
+            <button mat-menu-item (touchstart)="scroll('about')">Sobre</button>
+            <button mat-menu-item (touchstart)="scroll('portfolio')">Conhecimentos</button>
+            <button mat-menu-item (touchstart)="scroll('repository')">Repositório</button>
+            <button mat-menu-item (touchstart)="scroll('contact')">Contato</button>
           </mat-menu>
         </div>
 
