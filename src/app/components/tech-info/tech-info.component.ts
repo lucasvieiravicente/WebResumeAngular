@@ -1,7 +1,6 @@
 import { Component, Inject, Injectable } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { KnowledgeResponse } from 'src/app/models/knowledgeResponse';
-import { HttpParameterCodec } from "@angular/common/http";
 
 @Component({
   selector: 'app-tech-info',
