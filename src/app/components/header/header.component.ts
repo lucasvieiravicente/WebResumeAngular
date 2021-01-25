@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-header',
@@ -12,10 +10,7 @@ export class HeaderComponent {
 
   public navbarOpen = false;
 
-  constructor(
-    private breakPointObserver: BreakpointObserver,
-    private router: Router
-  ) {  
+  constructor(private breakPointObserver: BreakpointObserver) {  
       this.breakPointObserver.observe([
         Breakpoints.XLarge,
         Breakpoints.Large,        

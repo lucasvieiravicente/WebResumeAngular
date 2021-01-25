@@ -6,6 +6,7 @@ import { ApiServicesService } from 'src/app/services/api-services.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { TechInfoComponent } from '../tech-info/tech-info.component';
 import { MatDialog } from '@angular/material/dialog';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-portfolio',
@@ -19,7 +20,8 @@ export class PortfolioComponent implements OnInit {
   constructor(
   private services: ApiServicesService,
   private sanitizer: DomSanitizer,
-  private dialog: MatDialog
+  private dialog: MatDialog,
+  private breakpoint: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
@@ -40,7 +42,7 @@ export class PortfolioComponent implements OnInit {
 
   openInfo(index: number) {
     this.knowledges.subscribe(knowledge => {
-      const techInfoComponent = new TechInfoComponent(this.dialog, knowledge[index])
+      const techInfoComponent = new TechInfoComponent(this.dialog, this.breakpoint, knowledge[index])
       techInfoComponent.openDialog();
     });
   }

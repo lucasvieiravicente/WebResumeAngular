@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Inject, Injectable } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { KnowledgeResponse } from 'src/app/models/knowledgeResponse';
@@ -7,16 +8,29 @@ import { KnowledgeResponse } from 'src/app/models/knowledgeResponse';
   templateUrl: './tech-info.component.html',
   styleUrls: ['./tech-info.component.scss']
 })
+
 @Injectable()
 export class TechInfoComponent {
 
+  public widthWindow!: string;
+
   constructor(
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: KnowledgeResponse) {}
+    private breakPointObserver: BreakpointObserver,
+    @Inject(MAT_DIALOG_DATA) public data: KnowledgeResponse) {  
+      
+    this.breakPointObserver.observe([
+      Breakpoints.XLarge,
+      Breakpoints.Large,        
+      Breakpoints.Medium
+    ]).subscribe(result => {
+      this.widthWindow = result.matches ? '40%' : '85%'
+    });
+  }
 
   openDialog(): void {
     this.dialog.open(TechInfoComponent, {
-      width: '40%',
+      width: this.widthWindow,
       data: {
         title: this.data.title,
         firstDescription: this.data.firstDescription,
