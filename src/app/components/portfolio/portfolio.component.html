@@ -6,59 +6,24 @@
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
         </div>
-        <div class="container d-flex align-items-center flex-column">
+        <div class="container d-flex align-items-center flex-column mb-5">
             <h1 class="masthead-subheading mb-0">Aqui temos um resumo dos meus conhecimentos tecnológicos</h1>
         </div>
 
-        <div class="row">
-            <div
-            *ngFor="let knowledge of knowledges; index as i" 
-            class="col-md-6 col-lg-4 mb-5">
-                <div class="portfolio-item mx-auto" data-toggle="modal" [attr.data-target]="i">
-                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-search fa-3x"></i></div>
-                    </div>
-                    <img class="img-fluid" [src]="knowledge.FilePathImage" [alt]="knowledge.Title" />
-                </div>
-            </div>
+        <div class="row ml-4" *ngIf="knowledges">
+            <mat-card
+            *ngFor="let value of knowledges | async; index as i"
+            class="col-md-4 col-lg-5 mb-5 ml-5">
+                <mat-card-header>
+                  <mat-card-title class="masthead-subheading m-2">{{ value.title }}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image [src]="getBase64AsImage(value.fileData)" [alt]="getAltDescription(value.title)">
+                <mat-card-content class="text-center mt-3">
+                  <button class="btn btn-light font-weight-bold" [value]="i">
+                      Ver mais
+                      <i class="fas fa-search"></i>
+                  </button>
+                </mat-card-content>
+              </mat-card>
         </div>
-</div>
-
-<div
-    *ngFor="let knowledge of knowledges; index as i" 
-    class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="fas fa-times"></i></span>
-            </button>
-            <div class="modal-body text-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" [id]="i">{{ knowledge.Title }}</h2>
-                            <!-- Icon Divider-->
-                            <div class="divider-custom">
-                                <div class="divider-custom-line"></div>
-                            </div>
-                            <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" [src]="knowledge.FilePathImage" alt=knowledge.Title />
-                            <!-- Portfolio Modal - Text-->
-                            <p class="mb-5">
-                                {{ knowledge.FirstDescription }} <a href="https://www.google.com/search?q=c%23">aqui</a>
-                            </p>                                    
-                            <p class="mb-5">
-                                {{ knowledge.SecondDescription }}                                   
-                            </p>                                 
-                            <button class="btn btn-primary" data-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Fechar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

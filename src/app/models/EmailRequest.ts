@@ -1,7 +1,7 @@
 export interface EmailRequest {
-    Name: string,
-    Email: string,
+    name: string,
+    email: string,
     phoneNumber: string,
-    Body: string,
-    Subject: string
+    body: string,
+    subject: string
 }

@@ -1,7 +1,7 @@
 export interface KnowledgeResponse{
-    Title: string;
-    FirstDescription: string;
-    SecondDescription: string;
-    FilePathImage: string;
-    FileData: []
+    title: string;
+    firstDescription: string;
+    secondDescription: string;
+    filePathImage: string;
+    fileData: string[]
 }
