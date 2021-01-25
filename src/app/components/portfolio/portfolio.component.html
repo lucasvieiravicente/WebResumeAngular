@@ -10,9 +10,9 @@
             <h1 class="masthead-subheading mb-0">Aqui temos um resumo dos meus conhecimentos tecnológicos</h1>
         </div>
 
-        <div class="row" *ngIf="knowledges">
+        <div class="row" *ngIf="knowledges; else loading">
             <mat-card
-            *ngFor="let value of knowledges | async; index as i"
+            *ngFor="let value of knowledges; index as i"
             class="col-md-4 col-lg-5 mb-5 mr-auto ml-auto mb-2">
                 <mat-card-header>
                   <mat-card-title class="masthead-subheading m-2">{{ value.title }}</mat-card-title>
@@ -26,4 +26,8 @@
                 </mat-card-content>
               </mat-card>
         </div>
+
+        <ng-template class="row" #loading>
+          <mat-spinner class="mr-auto ml-auto"></mat-spinner>
+        </ng-template>
 </div>

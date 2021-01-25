@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { delay, first } from 'rxjs/operators';
 import { KnowledgeResponse } from 'src/app/models/knowledgeResponse';
 import { ApiServicesService } from 'src/app/services/api-services.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -15,7 +15,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 export class PortfolioComponent implements OnInit {
 
-  public knowledges!: Observable<KnowledgeResponse[]>;
+  public knowledges!: KnowledgeResponse[];
+  public loading = true;
 
   constructor(
   private services: ApiServicesService,
@@ -29,7 +30,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   getKnowledges() {
-    this.knowledges = this.services.getAllKnowledge().pipe(first());
+    this.services.getAllKnowledge().subscribe(response => this.knowledges = response);
   }
 
   getBase64AsImage(fileData: string[]): SafeResourceUrl {
@@ -41,9 +42,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   openInfo(index: number) {
-    this.knowledges.subscribe(knowledge => {
-      const techInfoComponent = new TechInfoComponent(this.dialog, this.breakpoint, knowledge[index])
+      const techInfoComponent = new TechInfoComponent(this.dialog, this.breakpoint, this.knowledges[index])
       techInfoComponent.openDialog();
-    });
   }
 }
