@@ -10,8 +10,8 @@ import { EmailRequest } from '../models/EmailRequest';
 })
 export class ApiServicesService {
 
-  private baseUrlKnowledge = 'https://webapiknowledge.azurewebsites.net/';
-  private baseUrlEmail = 'https://webapiknowledge.azurewebsites.net/'
+  private baseUrlKnowledge = 'https://webapiknowledge.azurewebsites.net';
+  private baseUrlEmail = 'https://webapilucas.azurewebsites.net'
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };

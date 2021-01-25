@@ -12,7 +12,6 @@ import { PortfolioModule } from './components/portfolio/portfolio.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutProjectModule } from './components/about-project/about-project.module';
 import { ContactModule } from './components/contact/contact.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterModule } from './components/footer/footer.module';
 import { RouterModule } from '@angular/router';
 
@@ -23,12 +22,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
     AppRoutingModule,
     RouterModule,
-    NgbModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
+    NgbModule, 
     HeaderModule,
     MastheadModule,
     AboutModule,

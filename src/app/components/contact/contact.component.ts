@@ -28,14 +28,11 @@ export class ContactComponent implements OnInit {
       phoneNumber: new FormControl('', [ Validators.pattern('\d'), Validators.maxLength(13)]),
       body: new FormControl('', Validators.required),
       subject: new FormControl('')
-    })
+    });
   }
 
   sendEmail(): void {
-    this.service.sendEmail({ ...this.emailFormGroup.getRawValue() });
-    document.getElementById('contactForm')?.addEventListener('submit', event => {
-      event.preventDefault()
-    });
+    this.service.sendEmail({ ...this.emailFormGroup.getRawValue() }).subscribe();
   }
 
 }
