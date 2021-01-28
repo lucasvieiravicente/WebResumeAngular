@@ -21,7 +21,13 @@ export class HeaderComponent {
    }
 
   scroll(elementId: string) {
-    const position = document.getElementById(elementId)?.offsetTop;
+    let position: number | undefined;
+    
+    if(elementId === 'top') {
+      position = 150;
+    } else {
+      position = document.getElementById(elementId)?.offsetTop;
+    }
 
     if(position)
       window.scrollTo({
