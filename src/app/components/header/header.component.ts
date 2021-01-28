@@ -20,7 +20,13 @@ export class HeaderComponent {
       });
    }
 
-  scroll(el: string) {
-    document.getElementById(el)?.scrollIntoView({behavior: 'smooth'});
+  scroll(elementId: string) {
+    const position = document.getElementById(elementId)?.offsetTop;
+
+    if(position)
+      window.scrollTo({
+        top: position - 100,
+        behavior: 'smooth'
+      });
   }
 }
