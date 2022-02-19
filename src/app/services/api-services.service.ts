@@ -20,19 +20,19 @@ export class ApiServicesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllKnowledge(): Promise<KnowledgeResponse[]> {
-    return this.httpClient.get<KnowledgeResponse[]>(`${this.baseUrlKnowledge}/V2/Knowledge`).toPromise();
+  getAllKnowledge(): Observable<KnowledgeResponse[]> {
+    return this.httpClient.get<KnowledgeResponse[]>(`${this.baseUrlKnowledge}/V2/Knowledge`);
   }
 
-  getKnowledgeByStackId(stackId: StackIds): Promise<KnowledgeResponse[]> {
-    return this.httpClient.get<KnowledgeResponse[]>(`${this.baseUrlKnowledge}/V2/Knowledge/ByStackId/${stackId}`).toPromise();
+  getKnowledgeByStackId(stackId: StackIds): Observable<KnowledgeResponse[]> {
+    return this.httpClient.get<KnowledgeResponse[]>(`${this.baseUrlKnowledge}/V2/Knowledge/ByStackId/${stackId}`);
   }
 
-  getAllStacks(): Promise<StackResponse[]> {
-    return this.httpClient.get<StackResponse[]>(`${this.baseUrlKnowledge}/V2/Stack/all`).toPromise();
+  getAllStacks(): Observable<StackResponse[]> {
+    return this.httpClient.get<StackResponse[]>(`${this.baseUrlKnowledge}/V2/Stack/all`);
   }
 
-  sendEmail(email: EmailRequest): Promise<EmailRequest> {
-    return this.httpClient.post<EmailRequest>(`${this.baseUrlEmail}/SendEmail`, JSON.stringify(email), this.httpOptions).toPromise();
+  sendEmail(email: EmailRequest): Observable<EmailRequest> {
+    return this.httpClient.post<EmailRequest>(`${this.baseUrlEmail}/SendEmail`, JSON.stringify(email), this.httpOptions);
   }
 }
