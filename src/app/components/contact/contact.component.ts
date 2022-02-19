@@ -32,7 +32,7 @@ export class ContactComponent implements OnInit {
   }
 
   sendEmail(): void {
-    this.service.sendEmail({ ...this.emailFormGroup.getRawValue() }).subscribe();
+    this.service.sendEmail({ ...this.emailFormGroup.getRawValue() });
   }
 
 }

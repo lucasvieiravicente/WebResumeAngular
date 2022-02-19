@@ -10,23 +10,11 @@
             <h1 class="masthead-subheading mb-0">Aqui temos um resumo dos meus conhecimentos tecnológicos</h1>
         </div>
 
-        <div class="row" *ngIf="knowledges; else loading">
-            <mat-card
-            *ngFor="let value of knowledges; index as i"
-            class="col-md-4 col-lg-5 mb-5 mr-auto ml-auto mb-2 shadow-lg .portfolio .portfolio-item">
-                <mat-card-header>
-                  <mat-card-title class="portfolio masthead-subheading m-2">{{ value.title }}</mat-card-title>
-                </mat-card-header>
-                <div class="p-3 text-center">
-                  <img mat-card-image [src]="getBase64AsImage(value.fileData)" [alt]="getAltDescription(value.title)">
-                </div>
-                <mat-card-content class="text-center mt-3">
-                  <button class="btn btn-light font-weight-bold table thead th" (click)="openInfo(i)">
-                      Ver mais
-                      <i class="fas fa-search"></i>
-                  </button>
-                </mat-card-content>
-              </mat-card>
+        <div class="container" *ngIf="stacks | async; else loading">
+            <app-stack-panel
+              *ngFor="let stack of stacks | async; index as i" 
+              [stack]="stack">
+            </app-stack-panel>
         </div>
 
         <ng-template class="row" #loading>

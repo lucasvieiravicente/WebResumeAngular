@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatExpansionModule } from '@angular/material/expansion'
+import { KnowledgeCardComponent } from '../knowledge-card/knowledge-card.component';
+import { KnowledgeCardModule } from '../knowledge-card/knowledge-card.module';
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { MatExpansionModule } from '@angular/material/expansion'
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    KnowledgeCardModule
   ],
   declarations: [StackPanelComponent],
   exports: [StackPanelComponent]

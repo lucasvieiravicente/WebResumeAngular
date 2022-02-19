@@ -4,6 +4,7 @@ import { PortfolioComponent } from './portfolio.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { StackPanelModule } from '../stack-panel/stack-panel.module';
 
 @NgModule({
   declarations: [PortfolioComponent],
@@ -12,7 +13,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CommonModule,
     MatCardModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    StackPanelModule
   ]
 })
 

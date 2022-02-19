@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { KnowledgeResponse } from '../models/knowledgeResponse';
 import { debounceTime } from 'rxjs/operators'
 import { EmailRequest } from '../models/EmailRequest';
+import { StackIds } from '../enums/StackIds';
+import { StackResponse } from '../models/StackResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +20,19 @@ export class ApiServicesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllKnowledge(): Observable<KnowledgeResponse[]> {
-    return this.httpClient.get<KnowledgeResponse[]>(`${this.baseUrlKnowledge}/Knowledge`)
-    .pipe(debounceTime(400));
+  getAllKnowledge(): Promise<KnowledgeResponse[]> {
+    return this.httpClient.get<KnowledgeResponse[]>(`${this.baseUrlKnowledge}/V2/Knowledge`).toPromise();
   }
 
-  sendEmail(email: EmailRequest): Observable<EmailRequest> {
-    return this.httpClient.post<EmailRequest>(`${this.baseUrlEmail}/SendEmail`, JSON.stringify(email), this.httpOptions)
-    .pipe(debounceTime(500));
+  getKnowledgeByStackId(stackId: StackIds): Promise<KnowledgeResponse[]> {
+    return this.httpClient.get<KnowledgeResponse[]>(`${this.baseUrlKnowledge}/V2/Knowledge/ByStackId/${stackId}`).toPromise();
+  }
+
+  getAllStacks(): Promise<StackResponse[]> {
+    return this.httpClient.get<StackResponse[]>(`${this.baseUrlKnowledge}/V2/Stack/all`).toPromise();
+  }
+
+  sendEmail(email: EmailRequest): Promise<EmailRequest> {
+    return this.httpClient.post<EmailRequest>(`${this.baseUrlEmail}/SendEmail`, JSON.stringify(email), this.httpOptions).toPromise();
   }
 }
