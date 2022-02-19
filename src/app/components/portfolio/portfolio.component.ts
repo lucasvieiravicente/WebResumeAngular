@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { delay, first } from 'rxjs/operators';
 import { KnowledgeResponse } from 'src/app/models/knowledgeResponse';
 import { ApiServicesService } from 'src/app/services/api-services.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';

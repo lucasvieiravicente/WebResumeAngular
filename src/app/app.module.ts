@@ -15,6 +15,7 @@ import { ContactModule } from './components/contact/contact.module';
 import { FooterModule } from './components/footer/footer.module';
 import { RouterModule } from '@angular/router';
 import { FooterWarningModule } from './components/footer-warning/footer-warning.module';
+import { StackPanelModule } from './components/stack-panel/stack-panel.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FooterWarningModule } from './components/footer-warning/footer-warning.
     AboutProjectModule,
     ContactModule,
     FooterModule,
-    FooterWarningModule
+    FooterWarningModule,
+    StackPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
