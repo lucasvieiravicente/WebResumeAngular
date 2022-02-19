@@ -1,8 +1,8 @@
 <div class="container">
-  <div *ngIf="knowledges | async; else loading">
+  <div *ngIf="knowledges; else loading">
 
     <div class="row">
-      <mat-card *ngFor="let value of knowledges | async; index as i"
+      <mat-card *ngFor="let value of knowledges; index as i"
       class="col-5 shadow-lg .portfolio .portfolio-item ml-auto mr-auto mt-5">
 
       <mat-card-header>

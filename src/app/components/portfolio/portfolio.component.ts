@@ -9,10 +9,10 @@ import { ApiServicesService } from 'src/app/services/api-services.service';
 })
 export class PortfolioComponent {
 
-  public stacks!: Promise<StackResponse[]>;
+  public stacks!: StackResponse[];
   public loading = true;
 
   constructor(private services: ApiServicesService) { 
-    this.stacks = this.services.getAllStacks();
+    this.services.getAllStacks().subscribe(stacks => this.stacks = stacks);
   }
 }

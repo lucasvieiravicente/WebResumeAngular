@@ -13,16 +13,8 @@ export class StackPanelComponent {
   @Input() stack!: StackResponse;
   @ViewChild(KnowledgeCardComponent) knowledgeComponent!: KnowledgeCardComponent;
   panelOpenState = false;
-  private loadedKnowledges = false;
 
   public getKnowledges(){
-    if(!this.loadedKnowledges){
       this.knowledgeComponent.getKnowledgesPerStackId(this.stack.stackId);
-      this.loadedKnowledges = true;
-    }
-  }
-
-  public getStackName(): string {
-    return this.stack ? this.stack.stackName : '';
   }
 }

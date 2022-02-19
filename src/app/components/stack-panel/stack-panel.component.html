@@ -1,11 +1,11 @@
 <mat-accordion class="page-section m-1" id="portfolio">
 
-  <div class="container" (click)="getKnowledges()">
+  <div class="container" (click)="this.stack.stackName">
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 
       <mat-expansion-panel-header>
         <mat-panel-title class="masthead-subheading d-flex justify-content-center">
-          <span class="font-weight-bold lead">{{ getStackName() }}</span>
+          <span class="font-weight-bold lead">{{ this.stack.stackName }}</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
 

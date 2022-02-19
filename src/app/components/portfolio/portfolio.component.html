@@ -10,9 +10,9 @@
             <h1 class="masthead-subheading mb-0">Aqui temos um resumo dos meus conhecimentos tecnológicos</h1>
         </div>
 
-        <div class="container" *ngIf="stacks | async; else loading">
+        <div class="container" *ngIf="stacks; else loading">
             <app-stack-panel
-              *ngFor="let stack of stacks | async; index as i" 
+              *ngFor="let stack of stacks; index as i" 
               [stack]="stack">
             </app-stack-panel>
         </div>

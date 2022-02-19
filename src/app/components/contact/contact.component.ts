@@ -11,11 +11,7 @@ export class ContactComponent implements OnInit {
 
   public emailFormGroup!: FormGroup;
 
-  constructor(
-    private service: ApiServicesService,
-    private formBuilder: FormBuilder) 
-    { 
-    }
+  constructor(private service: ApiServicesService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -32,7 +28,7 @@ export class ContactComponent implements OnInit {
   }
 
   sendEmail(): void {
-    this.service.sendEmail({ ...this.emailFormGroup.getRawValue() });
+    this.service.sendEmail({ ...this.emailFormGroup.getRawValue() }).subscribe();
   }
 
 }

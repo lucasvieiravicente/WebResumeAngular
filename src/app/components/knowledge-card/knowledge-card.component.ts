@@ -14,7 +14,7 @@ import { TechInfoComponent } from '../tech-info/tech-info.component';
 })
 export class KnowledgeCardComponent {
 
-  knowledges!: Promise<KnowledgeResponse[]>;
+  knowledges!: KnowledgeResponse[];
 
   constructor(private services: ApiServicesService,
               private sanitizer: DomSanitizer,
@@ -22,11 +22,12 @@ export class KnowledgeCardComponent {
               private breakpoint: BreakpointObserver)  { }
 
   public getKnowledgesPerStackId(stackId: StackIds){
-    this.knowledges = this.services.getKnowledgeByStackId(stackId);
+    if (!this.knowledges){
+      this.services.getKnowledgeByStackId(stackId).subscribe(knowledges => this.knowledges = knowledges);
+    }
   }
 
   getBase64AsImage(fileData: string[]): SafeResourceUrl {
-    console.log(fileData);
     return this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${fileData}`);
   }
 
@@ -34,8 +35,8 @@ export class KnowledgeCardComponent {
     return `Logo image of ${title}`;
   }
 
-  async openInfo(index: number) {
-    const techInfoComponent = new TechInfoComponent(this.dialog, this.breakpoint, await this.knowledges.then(knowledges => knowledges[index]))
+  openInfo(index: number) {
+    const techInfoComponent = new TechInfoComponent(this.dialog, this.breakpoint, this.knowledges[index])
     techInfoComponent.openDialog();
   }
 }
