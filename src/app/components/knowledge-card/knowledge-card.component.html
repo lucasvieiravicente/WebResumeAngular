@@ -1,16 +1,18 @@
-<div class="container">
+<div class="container mb-5">
   <div *ngIf="knowledges; else loading">
 
     <div class="row">
-      <mat-card *ngFor="let value of knowledges; index as i"
-      class="card shadow-lg .portfolio .portfolio-item ml-auto mr-auto mt-5">
+      <mat-card 
+        *ngFor="let value of knowledges; index as i"
+        class="card shadow-lg .portfolio .portfolio-item mx-auto mt-5"
+      >
 
       <mat-card-header>
         <mat-card-title class="portfolio masthead-subheading">{{ value.title }}</mat-card-title>
       </mat-card-header>
 
-      <div class="p-3 text-center">
-        <img mat-card-image [src]="getBase64AsImage(value.fileData)" [alt]="getAltDescription(value.title)">
+      <div class="p-3 text-center card-image">
+        <img class="img-fluid" mat-card-image [src]="getBase64AsImage(value.fileData)" [alt]="getAltDescription(value.title)">
       </div>
 
       <mat-card-content class="text-center mt-3">
@@ -26,6 +28,6 @@
   </div>
   
   <ng-template class="row" #loading>
-    <mat-spinner class="mr-auto ml-auto"></mat-spinner>
+    <mat-spinner class="mx-auto"></mat-spinner>
   </ng-template>
 </div>
