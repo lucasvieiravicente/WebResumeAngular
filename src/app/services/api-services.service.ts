@@ -13,7 +13,7 @@ import { StackResponse } from '../models/StackResponse';
 export class ApiServicesService {
 
   private baseUrlKnowledge = 'https://webapiknowledge.azurewebsites.net';
-  private baseUrlEmail = 'https://webapilucas.azurewebsites.net'
+  private baseUrlEmail = 'https://webapiemail.azurewebsites.net'
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
