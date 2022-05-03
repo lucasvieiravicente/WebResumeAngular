@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AboutComponent {
 
   public getProfessionalTime(): number {
-    return new Date().getFullYear() - 2018
+    return new Date().getFullYear() - 2017
   }
 
 }
